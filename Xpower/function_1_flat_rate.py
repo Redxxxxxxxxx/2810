@@ -33,7 +33,7 @@ def flat_rate_calc(usage_data, flat_rate=00.25, fixed_fee=10.00):
             kwh_used += kwh
         #negative values treated as 0 usage - no rebate applied.    
         else:
-            pass
+            kwh = 0
 
     #Calc usage cost
     kwh_used_cost = kwh_used * flat_rate

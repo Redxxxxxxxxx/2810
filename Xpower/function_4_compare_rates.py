@@ -1,8 +1,9 @@
 #Compare All Rate Price Calculations
 
-from function_1_flat_rate       import flat_rate_calc
-from function_2_time_of_use     import time_rate_calc
-from function_3_tier_rate       import tier_rate_calc
+from Xpower.function_1_flat_rate    import flat_rate_calc
+from Xpower.function_2_time_of_use  import time_rate_calc
+from Xpower.function_3_tier_rate    import tier_rate_calc
+
 
 
 def compare_rates(usage_data):

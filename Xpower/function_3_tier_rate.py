@@ -42,7 +42,7 @@ def tier_rate_calc(usage_data, t1_rate=00.20, t2_rate=00.30, t3_rate=00.40, fixe
             total_kwh_used += kwh
         #negative values treated as 0 usage - no rebate applied.    
         else:
-            pass
+            kwh = 0
 
     #Tier Distribution
     kwh_remaining   = total_kwh_used

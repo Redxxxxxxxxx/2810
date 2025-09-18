@@ -44,7 +44,7 @@ def time_rate_calc(usage_data, peak_rate=00.40, off_peak_rate=00.15, shoulder_ra
             kwh = kwh
         #negative values treated as 0 usage - no rebate applied.    
         else:
-            pass
+            kwh = 0
 
 
         #Calc kwhs Per Timeframe
