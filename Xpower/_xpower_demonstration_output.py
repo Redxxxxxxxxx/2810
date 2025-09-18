@@ -1,6 +1,6 @@
 #Test Script
 
-from Xpower.compare_rates   import compare_rates
+from Xpower.compare_rates       import compare_rates
 from process_data               import extract_data
 
 """

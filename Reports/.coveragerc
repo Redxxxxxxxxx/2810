@@ -1,4 +1,4 @@
 [run]
 omit =
     Xpower/process_data.py
-    Xpower/_xpower.py
+    Xpower/_xpower_demonstration_output.py

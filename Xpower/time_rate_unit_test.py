@@ -1,5 +1,5 @@
 import pytest
-from Xpower.time_of_use import time_rate_calc
+from Xpower.time_use_rate import time_rate_calc
 
 #Typical
 @pytest.mark.parametrize("usage_data,expected", [
