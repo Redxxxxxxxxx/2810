@@ -1,5 +1,5 @@
 import pytest
-from Xpower.function_4_compare_rates import compare_rates
+from Xpower.compare_rates import compare_rates
 
 
 #Typical
@@ -40,7 +40,7 @@ def test_B1_compare_rates_equal_costs(capsys):
 
 #Invalid
 def test_I1_compare_rates_error_zero_fee(monkeypatch):
-    import Xpower.function_4_compare_rates as compare_mod
+    import Xpower.compare_rates as compare_mod
     monkeypatch.setattr(compare_mod, "flat_rate_calc", lambda data, **kwargs: 0)
 
     usage_data = [["2025-01-01", "10:00", "100"]]

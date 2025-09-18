@@ -1,5 +1,5 @@
 import pytest
-from Xpower.function_1_flat_rate import flat_rate_calc
+from Xpower.flat_rate import flat_rate_calc
 
 #Valid
 @pytest.mark.parametrize("usage_data,rate,fee,expected", [

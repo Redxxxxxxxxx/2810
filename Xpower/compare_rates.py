@@ -1,8 +1,8 @@
 #Compare All Rate Price Calculations
 
-from Xpower.function_1_flat_rate    import flat_rate_calc
-from Xpower.function_2_time_of_use  import time_rate_calc
-from Xpower.function_3_tier_rate    import tier_rate_calc
+from Xpower.flat_rate    import flat_rate_calc
+from Xpower.time_of_use  import time_rate_calc
+from Xpower.tier_rate    import tier_rate_calc
 
 
 

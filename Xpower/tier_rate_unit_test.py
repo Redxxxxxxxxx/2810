@@ -1,5 +1,5 @@
 import pytest
-from Xpower.function_3_tier_rate import tier_rate_calc
+from Xpower.tier_rate import tier_rate_calc
 
 #Typical
 @pytest.mark.parametrize("usage_data,expected", [
