@@ -11,8 +11,8 @@ def test_flat_rate_typical_cases(usage_data, rate, fee, expected):
 
 #Boundary
 @pytest.mark.parametrize("usage_data,rate,fee,expected", [
-    ([["2025-01-01", "12:00", "0"], ["2025-01-02", "12:00", "0"]], 0.25, 10, 10.0),      # B1 Zero usage → only fixed fee
-    ([["2025-01-01", "12:00", "-100"], ["2025-01-02", "12:00", "-50"]], 0.25, 10, 10.0), # B2 All negative usage → ignored, only fixed fee
+    ([["2025-01-01", "12:00", "0"], ["2025-01-02", "12:00", "0"]], 0.25, 10, 10.0),      # B1 Zero usage only fixed fee
+    ([["2025-01-01", "12:00", "-100"], ["2025-01-02", "12:00", "-50"]], 0.25, 10, 10.0), # B2 All negative usage ignored, only fixed fee
 ])
 def test_flat_rate_boundary_cases(usage_data, rate, fee, expected):
     assert flat_rate_calc(usage_data, rate, fee) == expected

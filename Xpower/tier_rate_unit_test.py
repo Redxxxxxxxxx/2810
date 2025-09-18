@@ -13,10 +13,10 @@ def test_tier_rate_typical_cases(usage_data, expected):
 
 #Boundary
 @pytest.mark.parametrize("usage_data,expected", [
-    ([["2025-01-01", "10:00", "100"]], 100*0.20 + 10),              # B1: Exactly 100 kWh (boundary between Tier 1 and 2)
-    ([["2025-01-01", "10:00", "300"]], 100*0.20 + 200*0.30 + 10),   # B2: Exactly 300 kWh (boundary between Tier 2 and 3)
-    ([["2025-01-01", "10:00", "0"]], 10),                           # B3: Zero usage (bill = fixed fee only)
-    ([["2025-01-01", "10:00", "-50"]], 10),                         # B4: Negative usage (ignored → bill = fixed fee only)
+    ([["2025-01-01", "10:00", "100"]], 100*0.20 + 10),              # B1: Exactly 100 kWh boundary between Tier 1 and 2
+    ([["2025-01-01", "10:00", "300"]], 100*0.20 + 200*0.30 + 10),   # B2: Exactly 300 kWh boundary between Tier 2 and 3
+    ([["2025-01-01", "10:00", "0"]], 10),                           # B3: Zero usage bill fixed fee only
+    ([["2025-01-01", "10:00", "-50"]], 10),                         # B4: Negative usage fixed fee only
 ])
 def test_tier_rate_boundary_cases(usage_data, expected):
     result = tier_rate_calc(usage_data)

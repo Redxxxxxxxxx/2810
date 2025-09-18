@@ -18,8 +18,8 @@ def test_time_rate_typical_cases(usage_data, expected):
     ([["2025-01-01", "07:00", "10"]], 10*0.25 + 10),    # B1 Exactly at 07:00 → shoulder
     ([["2025-01-01", "18:00", "10"]], 10*0.40 + 10),    # B2 Exactly at 18:00 → peak
     ([["2025-01-01", "22:00", "10"]], 10*0.25 + 10),    # B3 Exactly at 22:00 → shoulder
-    ([["2025-01-01", "10:00", "-100"]], 0*0.25 + 10),   # B4 Negative usage ignored
-    ([["2025-01-01", "10:00", "0"]], 0*0.25 + 10),      # B5 Zero usage → only fixed fee
+    ([["2025-01-01", "10:00", "-100"]], 0*0.25 + 10),   # B4 Negative use ignored
+    ([["2025-01-01", "10:00", "0"]], 0*0.25 + 10),      # B5 Zero use → only fixed fee
 ])
 def test_time_rate_boundary_cases(usage_data, expected):
     result = time_rate_calc(usage_data)

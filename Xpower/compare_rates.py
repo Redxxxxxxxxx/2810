@@ -19,9 +19,6 @@ def compare_rates(usage_data):
     cheap_rate, cheap_cost  = rate_calcs[0]
 
     for rate_type in rate_calcs[1:]:
-        if (cheap_cost <= 0):
-            raise ValueError("Error, Fee Cannot Be $0.00")
-        else:
             if (rate_type[1] < cheap_cost):
                 cheap_cost = rate_type[1]
                 cheap_rate = rate_type[0]

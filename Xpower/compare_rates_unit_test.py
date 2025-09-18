@@ -17,13 +17,13 @@ def test_T1_compare_rates_typical_case(capsys):
     assert "Your Time Rate Plan Cost Will Be" in captured.out
     assert "Your Tier Rate Plan Cost Will Be" in captured.out
 
-    # Should print cheapest plan line
+    #Should print cheapest plan line
     assert "Your Cheapest Plan Will Be" in captured.out
 
 
 #Boundary
 def test_B1_compare_rates_equal_costs(capsys):
-    # Zero usage - Fixed fee only
+    #Zero usage Fixed fee only
     usage_data = [
         ["2025-01-01", "10:00", "0"],
         ["2025-01-01", "19:00", "0"],
@@ -39,19 +39,20 @@ def test_B1_compare_rates_equal_costs(capsys):
 
 
 #Invalid
-def test_I1_compare_rates_error_zero_fee(monkeypatch):
-    import Xpower.compare_rates as compare_mod
-    monkeypatch.setattr(compare_mod, "flat_rate_calc", lambda data, **kwargs: 0)
-
-    usage_data = [["2025-01-01", "10:00", "100"]]
-    with pytest.raises(ValueError) as e:
-        compare_mod.compare_rates(usage_data)
-    assert "Error, Fee Cannot Be $0.00" in str(e.value)
+def test_I1_compare_rates_invalid_kwh_string():
+    usage_data = [["2025-01-01", "10:00", "abc"]]  #str kWh
+    with pytest.raises(ValueError):
+        compare_rates(usage_data)
 
 
+def test_I2_compare_rates_negative_kwh(capsys):
+    usage_data = [["2025-01-01", "10:00", "-50"]]
+    compare_rates(usage_data)   # just run it
+    captured = capsys.readouterr()
+    assert "Your Cheapest Plan Will Be Flat Rate With A Cost Of: $10.0" in captured.out
 
-def test_I2_compare_rates_invalid_input_type():
-    # Bad input: string kWh should bubble up from underlying calculators
-    usage_data = [["2025-01-01", "10:00", "abc"]]
+
+def test_I3_compare_rates_invalid_time_format():
+    usage_data = [["2025-01-01", "25:00", "10"]]
     with pytest.raises(ValueError):
         compare_rates(usage_data)
